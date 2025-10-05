@@ -8,7 +8,6 @@ import ListContex from '../../provider/ListContex'
 const Root = () => {
   const [reads,setReads] = useState(JSON.parse(localStorage.getItem('reads'))||[]);
   const [wishlist,setWishlist] = useState([]);
-  // console.log({reads,wishlist});
   console.log(JSON.parse(localStorage.getItem('reads')));
   localStorage.setItem('reads',JSON.stringify(reads));
   return (

@@ -1,11 +1,18 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { FaUser } from 'react-icons/fa'
 import { MdOutlineRestorePage } from 'react-icons/md'
 import { SlCalender } from 'react-icons/sl'
 import { Link } from 'react-router'
+import ListContex from '../../provider/ListContex'
 
 const ReadBooksCard = ({book}) => {
     const { bookId, bookName, author, image, totalPages, rating, category, tags, publisher, yearOfPublishing, review } = book;
+    const { reads, setReads, wishlist, setWishlist } = useContext(ListContex);
+    const handleRemove = () => {
+        const index = reads.findIndex(item=>item.id==bookId)
+        reads.splice(index,1);
+        setReads([...reads]);
+    }
   return (
     <>
         <div className="p-4 border border-gray-200 rounded-lg">
@@ -30,6 +37,7 @@ const ReadBooksCard = ({book}) => {
                         <p className='bg-blue-100 text-blue-500 px-3 py-1 rounded-xl'>Category: {category}</p>
                         <p className='bg-yellow-100 text-yellow-500 px-3 py-1 rounded-xl'>Rating: {rating}</p>
                         <Link to={`/book-details/${bookId}`} className='bg-green-500 text-gray-100 px-3 py-1 rounded-xl duration-300 hover:bg-green-600'>View Details</Link>
+                        <Link onClick={handleRemove} className='bg-red-500 text-gray-100 px-3 py-1 rounded-xl duration-300 hover:bg-red-600'>Delete</Link>
                     </div>
                 </div>
             </div>
