@@ -4,6 +4,7 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import ReadBooksCard from '../../components/ReadBooksCard/ReadBooksCard';
 import ListContex from '../../provider/ListContex';
+import WishlistBooksCard from '../../components/WishlistBooksCard/WishlistBooksCard';
 const ListedBooks = () => {
   const [sort, setSort] = useState('');
   const { reads, setReads, wishlist, setWishlist } = useContext(ListContex);
@@ -47,7 +48,16 @@ const ListedBooks = () => {
                 </div>
               </TabPanel>
               <TabPanel>
-                <h2>Any content 2</h2>
+                <div className="space-y-6">
+                  {
+                    wishlist.map(book=>(
+                      <WishlistBooksCard 
+                      key={book.bookId}
+                      book={book}
+                      />
+                    ))
+                  }
+                </div>
               </TabPanel>
             </Tabs>
           </div>

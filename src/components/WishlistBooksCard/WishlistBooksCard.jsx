@@ -6,13 +6,13 @@ import { Link } from 'react-router'
 import ListContex from '../../provider/ListContex'
 import Swal from 'sweetalert2'
 
-const ReadBooksCard = ({ book }) => {
+const WishlistBooksCard = ({ book }) => {
     const { bookId, bookName, author, image, totalPages, rating, category, tags, publisher, yearOfPublishing, review } = book;
     const { reads, setReads, wishlist, setWishlist } = useContext(ListContex);
     const handleRemove = () => {
-        const index = reads.findIndex(item => item.bookId == bookId)
-        reads.splice(index, 1);
-        setReads([...reads]);
+        const index = wishlist.findIndex(item => item.bookId == bookId)
+        wishlist.splice(index, 1);
+        setWishlist([...wishlist]);
 
         Swal.fire({
             icon: "warning",
@@ -53,4 +53,4 @@ const ReadBooksCard = ({ book }) => {
     )
 }
 
-export default ReadBooksCard;
+export default WishlistBooksCard

@@ -13,11 +13,11 @@ const BookDetails = () => {
     const { reads, setReads, wishlist, setWishlist } = useContext(ListContex);
 
     const handleRead = () => {
-        const isExit = reads.find(item => item.bookId === Number(id))
+        const isExit = reads.find(item => item.bookId === Number(id));
         if (isExit) {
             Swal.fire({
-                icon: "error",
-                title: "Oops...",
+                icon: "warning",
+                title: "Already Listed",
                 text: "This book alredy listed",
             });
             return;
@@ -31,7 +31,22 @@ const BookDetails = () => {
         });
     }
     const handleWishlist = () => {
+        const isExit = wishlist.find(item => item.bookId === Number(id));
+        if (isExit) {
+            Swal.fire({
+                icon: "warning",
+                title: "Already Listed",
+                text: "This book alredy Wishlist",
+            });
+            return;
+        }
         setWishlist(prv => [...prv, currentBook]);
+        Swal.fire({
+            title: "Success!",
+            text: `${bookName} Mark as Wishlist!`,
+            icon: "success",
+            confirmButtonText: "OK"
+        });
     }
     return (
         <>
