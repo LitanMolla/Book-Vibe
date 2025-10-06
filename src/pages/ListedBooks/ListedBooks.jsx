@@ -12,12 +12,18 @@ const ListedBooks = () => {
     if (sort==='pages') {
       const sortArr = reads.sort((a,b)=>a.totalPages-b.totalPages);
       setReads([...sortArr]);
+      const sortWishlist = wishlist.sort((a,b)=>a.totalPages-b.totalPages);
+      setWishlist([...sortWishlist]);
     } else if(sort==='year'){
       const sortArr = reads.sort((a,b)=>a.yearOfPublishing-b.yearOfPublishing);
       setReads([...sortArr]);
+      const sortWishlist = wishlist.sort((a,b)=>a.yearOfPublishing-b.yearOfPublishing);
+      setWishlist([...sortWishlist]);
     } else if(sort==='rating'){
       const sortArr = reads.sort((a,b)=>a.rating-b.rating);
       setReads([...sortArr]);
+      const sortWishlist = wishlist.sort((a,b)=>a.rating-b.rating);
+      setWishlist([...sortWishlist]);
     }
   }
   return (
