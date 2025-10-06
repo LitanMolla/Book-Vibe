@@ -5,7 +5,7 @@ import mh from '../../assets/mh.png'
 const Hero = () => {
   return (
     <>
-      <div className="bg-gray-100 md:py-20 md:px-30 rounded-lg p-10">
+      <div className="bg-gray-100 md:py-20 md:px-30 rounded-lg p-10 my-10">
         <div className="flex justify-between items-center flex-col-reverse md:flex-row gap-5">
           <div className="md:w-2/3 space-y-5">
             <h1 className='text-4xl font-bold'>Books to freshen up your bookshelf</h1>

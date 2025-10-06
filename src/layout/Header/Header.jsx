@@ -7,7 +7,7 @@ const Header = () => {
   const [isOpen, setisOpen] = useState(true);
   return (
     <>
-      <header className='py-3 shadow mb-5'>
+      <header className='py-3 shadow'>
         <Container>
           <div className="flex items-center justify-between">
             <Link to={'/'} className='text-2xl font-semibold'>Book Vibe</Link>
