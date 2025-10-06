@@ -4,7 +4,7 @@ import { Link, NavLink } from 'react-router'
 import { Menu } from 'lucide-react'
 
 const Header = () => {
-  const [isOpen, setisOpen] = useState(true);
+  const [isOpen, setisOpen] = useState(false);
   return (
     <>
       <header className='py-3 shadow'>
